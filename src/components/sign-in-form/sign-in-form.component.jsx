@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 import {
-  signInWithGooglePopup, createUserDocumentFromAuth, customizedSignInWithEmailAndPassword
+  signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword
 } from '../../utils/firebase.utils';
 
 import './sign-in-form.styles.scss';
@@ -29,8 +29,8 @@ const SignInForm = () => {
     }
 
     try {
-      const response = await customizedSignInWithEmailAndPassword(signInEmail, signInPassword);
-      console.log(response);
+      await signInAuthUserWithEmailAndPassword(signInEmail, signInPassword);
+      alert('Sign In Success');
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -53,8 +53,8 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     const response = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(response.user);
-    console.log(userDocRef);
+    await createUserDocumentFromAuth(response.user);
+    alert('Signed in with Google');
   };
 
   return (
@@ -86,7 +86,7 @@ const SignInForm = () => {
         />
         <div className="buttons-container">
           <Button submit>Sign In</Button>
-          <Button buttonType="google" handleClick={signInWithGoogle}>Sign In With Google</Button>
+          <Button buttonType="google" clickHandler={signInWithGoogle}>Sign In With Google</Button>
         </div>
       </form>
     </div>

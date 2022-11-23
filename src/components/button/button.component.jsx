@@ -7,13 +7,13 @@ const BUTTON_TYPE_CLASSES = {
 
 const Button = (props) => {
   const {
-    children, buttonType, submit, handleClick
+    children, buttonType, submit, clickHandler
   } = props;
   return (
     <button
       className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
       type={submit ? 'submit' : 'button'}
-      onClick={handleClick}
+      onClick={clickHandler}
     >
       {children}
     </button>
