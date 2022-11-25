@@ -1,17 +1,17 @@
 import { RouterProvider } from 'react-router-dom';
 import { CartProvider } from './context/cart.context';
-import ProductsProvider from './context/products.context';
+import CategoriesProvider from './context/categories.context';
 import { UserProvider } from './context/user.context';
 import router from './routes/router';
 
 const App = () => {
   return (
     <UserProvider>
-      <ProductsProvider>
+      <CategoriesProvider>
         <CartProvider>
           <RouterProvider router={router} />
         </CartProvider>
-      </ProductsProvider>
+      </CategoriesProvider>
     </UserProvider>
   );
 };
