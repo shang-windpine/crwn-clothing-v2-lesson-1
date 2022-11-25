@@ -23,7 +23,7 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "comma-dangle": 0,
         "no-restricted-globals": ["warn", "event", "fdescribe"],
-        "no-undef": "warn",
+        "no-undef": "error",
         "react/function-component-definition": [2, {
             "namedComponents": ["function-declaration", "function-expression","arrow-function"],
             "unnamedComponents": ["function-expression", "arrow-function"]
